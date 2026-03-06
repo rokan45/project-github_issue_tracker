@@ -29,7 +29,7 @@
         <div class="navbar-start">
             <a class="flex items-center gap-2">
                 <img src="./images/github-logo.png" alt="" width="36px" height="36px">
-                <span class="text-2xl font-semibold">GitHub Issues Tracker</span>
+                <span class="hidden sm:inline text-2xl font-semibold sm:">GitHub Issues Tracker</span>
             </a>
         </div>
         <div class="navbar-end join flex item-center mx-auto">
@@ -54,7 +54,7 @@
 </section>
 
 <!-- Number of Issue section -->
-<section class="w-11/12 mx-auto py-5 mt-5 flex items-center justify-between shadow-2xl px-5">
+<section class="w-11/12 mx-auto py-5 mt-5 flex items-center justify-between shadow-md px-5">
     <!-- number content -->
     <div class="flex gap-4">
         <img src="./images/Aperture.png" alt="" width="50px" height="50px">
@@ -71,14 +71,25 @@
 </section>
 
 <!-- Issue container section -->
-<section>
-    <div>
-        <h2>Fix navigation menu on mobile devices</h2>
-        <p>The navigation menu doesn't collapse properly on mobile devices...</p>
-
-        <div>
-            <button>Bug</button>
+<section class="w-11/12  mx-auto grid grid-cols-3 gap-2.5 py-10">
+    <div class="h-70 p-4 rounded-sm shadow-sm">
+        <div class="flex justify-between items-center mb-3">
+            <img src="./images/Open-Status.png" alt="">
+            <button class="btn rounded-4xl">High</button>
         </div>
+        <h2 class="text-sm font-semibold mb-2">Fix navigation menu on mobile devices</h2>
+        <p class="text-sm text-[#64748B]">The navigation menu doesn't collapse properly on mobile devices...</p>
+
+        <div class="felx items-center mt-3 space-x-4">
+            <button class="btn btn-soft">Bug</button>
+            <button class="btn btn-soft">Bug</button>
+        </div>
+        <hr class="border-[#E4E4E7] mt-2">
+        <div class="p-4 space-y-2">
+            <h2 class="text-sm text-[#64748B]">#1 by john_doe</h2>
+            <h2 class="text-sm text-[#64748B] mb-2">1/15/2024</h2>
+        </div>
+
     </div>
 </section>
 
