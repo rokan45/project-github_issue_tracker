@@ -1,5 +1,5 @@
 # #Github Issue Tracker
-This a simple issue tracker project which track issue from github. The project is buid using HTML,CSS and JavaScript.
+This a simple issue tracker project which track issue from github. The project is build using HTML,CSS and JavaScript.
 
 ## ##Question and Answer 
 1️⃣ What is the difference between var, let, and const?  
