@@ -23,78 +23,82 @@
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<!-- Navbar section -->
-<header>
-    <div class="navbar flex mx-auto px-5 items-center bg-base-100 shadow-sm">
-        <div class="navbar-start">
-            <a class="flex items-center gap-2">
-                <img src="./images/github-logo.png" alt="" width="36px" height="36px">
-                <span class="hidden sm:inline text-2xl font-semibold sm:">GitHub Issues Tracker</span>
-            </a>
-        </div>
-        <div class="navbar-end join flex item-center mx-auto">
-            <div>
-                <label class="input validator join-item">
-                    <input id="input-search" type="search" placeholder="Search Issues.." required />
-                </label>
-            </div>
-            <button id="btn-search" class="btn btn-primary">Search</button>
-        </div>
-    </div>
-</header>
 
-<!-- Tab section -->
-<section class="w-11/12 mx-auto py-5 mt-5">
-    <div class="border-none shadow-lg py-5 space-x-3 px-5">
-        <button class="btn btn-primary">All</button>
-        <button class="btn btn-primary">Open</button>
-        <button class="btn btn-primary">Closed</button>
-
-    </div>
-</section>
-
-<!-- Number of Issue section -->
-<section class="w-11/12 mx-auto py-5 mt-5 flex items-center justify-between shadow-md px-5">
-    <!-- number content -->
-    <div class="flex gap-4">
-        <img src="./images/Aperture.png" alt="" width="50px" height="50px">
-        <div>
-            <h2 class="text-2xl font-semibold"><span>50</span> Issues</h2>
-            <p class="text-[#64748B] text-sm">Track and manage your project issues</p>
-        </div>
-    </div>
-    <!-- open closed sign -->
-    <div class="flex items-center space-x-2.5">
-        <h2><i class="fa-solid fa-circle text-[#00A96E]"></i> Open</h2>
-        <h2><i class="fa-solid fa-circle text-[#A855F7]"></i> Closed</h2>
-    </div>
-</section>
-
-<!-- Issue container section -->
-<section class="w-11/12  mx-auto grid grid-cols-3 gap-2.5 py-10">
-    <div class="h-70 p-4 rounded-sm shadow-sm">
-        <div class="flex justify-between items-center mb-3">
-            <img src="./images/Open-Status.png" alt="">
-            <button class="btn rounded-4xl">High</button>
-        </div>
-        <h2 class="text-sm font-semibold mb-2">Fix navigation menu on mobile devices</h2>
-        <p class="text-sm text-[#64748B]">The navigation menu doesn't collapse properly on mobile devices...</p>
-
-        <div class="felx items-center mt-3 space-x-4">
-            <button class="btn btn-soft">Bug</button>
-            <button class="btn btn-soft">Bug</button>
-        </div>
-        <hr class="border-[#E4E4E7] mt-2">
-        <div class="p-4 space-y-2">
-            <h2 class="text-sm text-[#64748B]">#1 by john_doe</h2>
-            <h2 class="text-sm text-[#64748B] mb-2">1/15/2024</h2>
-        </div>
-
-    </div>
-</section>
 
 <body>
+    <!-- Navbar section -->
+    <header>
+        <div class="navbar flex mx-auto px-5 items-center bg-base-100 shadow-sm">
+            <div class="navbar-start">
+                <a class="flex items-center gap-2">
+                    <img src="./images/github-logo.png" alt="" width="36px" height="36px">
+                    <span class="hidden sm:inline text-2xl font-semibold sm:">GitHub Issues Tracker</span>
+                </a>
+            </div>
+            <div class="navbar-end join flex item-center mx-auto">
+                <div>
+                    <label class="input validator join-item">
+                        <input id="input-search" type="search" placeholder="Search Issues.." required />
+                    </label>
+                </div>
+                <button id="btn-search" class="btn btn-primary">Search</button>
+            </div>
+        </div>
+    </header>
 
+    <!-- Tab section -->
+    <section class="w-11/12 mx-auto py-5 mt-5">
+        <div class="border-none shadow-lg py-5 space-x-3 px-5">
+            <button class="btn btn-primary">All</button>
+            <button class="btn btn-primary">Open</button>
+            <button class="btn btn-primary">Closed</button>
+
+        </div>
+    </section>
+
+    <!-- Number of Issue section -->
+    <section class="w-11/12 mx-auto py-5 mt-5 flex items-center justify-between shadow-md px-5">
+        <!-- number content -->
+        <div class="flex gap-4">
+            <img src="./images/Aperture.png" alt="" width="50px" height="50px">
+            <div>
+                <h2 class="text-2xl font-semibold"><span>50</span> Issues</h2>
+                <p class="text-[#64748B] text-sm">Track and manage your project issues</p>
+            </div>
+        </div>
+        <!-- open closed sign -->
+        <div class="flex items-center space-x-2.5">
+            <h2><i class="fa-solid fa-circle text-[#00A96E]"></i> Open</h2>
+            <h2><i class="fa-solid fa-circle text-[#A855F7]"></i> Closed</h2>
+        </div>
+    </section>
+
+    <!-- Issue container section -->
+    <section id="issue-container" class="w-11/12  mx-auto grid grid-cols-3 gap-2.5 py-10">
+        <!-- issue card -->
+        <!-- <div class="p-4 rounded-sm shadow-sm w-full max-w-sm">
+            <div class="flex justify-between items-center mb-3">
+                <img src="./images/Open-Status.png" alt="" class="w-6 h-6 object-contain">
+                <button class="btn rounded-4xl">High</button>
+            </div>
+            <h2 class="text-sm font-semibold mb-2">Fix navigation menu on mobile devices</h2>
+            <p class="text-sm text-[#64748B] text-wrap">The navigation menu doesn't collapse properly on mobile
+                devices...</p>
+
+            <div class="felx flex-wrap items-center mt-3 space-x-4">
+                <button class="btn btn-soft">Bug</button>
+                <button class="btn btn-soft">Bug</button>
+            </div>
+            <hr class="border-[#E4E4E7] mt-2">
+            <div class="p-4 space-y-2">
+                <h2 class="text-sm text-[#64748B]">#1 by john_doe</h2>
+                <h2 class="text-sm text-[#64748B] mb-2">1/15/2024</h2>
+            </div>
+
+        </div> -->
+    </section>
+
+    <script src="./script/main.js"></script>
 </body>
 
 </html>
