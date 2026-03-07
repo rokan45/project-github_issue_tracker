@@ -7,6 +7,7 @@ const loadIssueData = () => {
         .then((res) => res.json())//promise
         .then(json => {
             displayIssueData(json.data);
+            countIssues(json.data);
 
         })
 }
@@ -21,6 +22,17 @@ const loadIssueDetails = async (id) => {
 
 };
 
+//to count issues
+const countIssues = (issues) => {
+    const total = issues.length;
+    const openIssues = issues.filter(issue => issue.status === "open");
+    const totalOpen = openIssues.length;
+    const closedIssues = issues.filter(issue => issue.status === "closed");
+    const totalClosed = closedIssues.length;
+
+    console.log(total, totalOpen, totalClosed);
+
+}
 //to show status label
 const createElements = (arr) => {
     const htmlElements = arr.map((el) =>
@@ -28,6 +40,8 @@ const createElements = (arr) => {
 
     return htmlElements.join(" ");
 }
+
+
 //display the data
 const displayIssueData = (issues) => {
     //get parentElement
