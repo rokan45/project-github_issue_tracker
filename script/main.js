@@ -57,17 +57,24 @@ const filterIssues = (status) => {
     }
 };
 
+//remove activce style from button
+const removeActive = () => {
+    const buttons = document.querySelectorAll(".btn");
+    buttons.forEach(btn => btn.classList.remove("active"));
+}
+
 //button active style handling
 const setActiveButton = (clickedBtn) => {
     //after clicking on open and closed button remove active from all
-    const buttons = document.querySelectorAll(".btn");
-    buttons.forEach(btn => btn.classList.remove("active"));
+    removeActive();
 
     //only show the active button which have been clicked
     const selectedButton = document.getElementById(clickedBtn);
     selectedButton.classList.add("active");
 
 };
+
+
 
 
 //display the data
@@ -149,7 +156,7 @@ const displayIssueDetails = (cards) => {
 //filter issue and update the number of issues
 document.getElementById("all-btn").addEventListener("click", () => {
     filterIssues("all");
-     const result = countIssues(allIssues);
+    const result = countIssues(allIssues);
     console.log(result.total);
 
     //get element
@@ -169,12 +176,50 @@ document.getElementById("open-btn").addEventListener("click", () => {
 })
 document.getElementById("closed-btn").addEventListener("click", () => {
     filterIssues("closed");
-     const result = countIssues(allIssues);
+    const result = countIssues(allIssues);
     console.log(result.totalClosed);
 
     //get element
     const numberContaier = document.getElementById("number");
     numberContaier.innerText = result.totalClosed;
 })
+
+//filtering search value and add event to seacrch button
+document.getElementById("btn-search").addEventListener("click", () => {
+    removeActive();
+
+    //get input value
+    const getInputElment = document.getElementById("input-search");
+    const inputValue = getInputElment.value.trim().toLowerCase();
+
+    //filter search data
+    const filterIssues = allIssues.filter((issue) => {
+        return issue.title.toLowerCase().includes(inputValue);
+    });
+
+    //update the display how many card have found
+    const numberContaier = document.getElementById("number");
+    numberContaier.innerText = filterIssues.length;
+
+    console.log(filterIssues.length);
+    displayIssueData(filterIssues);
+
+    //show all issue if clear search box
+
+});
+
+//If search box cleared allissues displayed
+const searchReload = () => {
+    const getInputElment = document.getElementById("input-search");
+    const inputValue = getInputElment.value.trim().toLowerCase()
+    getInputElment.addEventListener("input", () => {
+        if (inputValue.trim() === "") {
+            displayIssueData(allIssues);
+        }
+    });
+}
+searchReload();
+
+
 
 loadIssueData();
