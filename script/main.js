@@ -1,4 +1,5 @@
 console.log("Im connected");
+
 // fetching issue data
 const loadIssueData = () => {
     const url = "https://phi-lab-server.vercel.app/api/v1/lab/issues";
@@ -6,11 +7,14 @@ const loadIssueData = () => {
     fetch(url)
         .then((res) => res.json())//promise
         .then(json => {
-            displayIssueData(json.data);
-            countIssues(json.data);
+            allIssues=json.data;
+            // console.log(allIssues);
 
-        })
-}
+            displayIssueData(allIssues);
+            countIssues(allIssues);
+
+        });
+};
 
 //fetch data for issue details
 const loadIssueDetails = async (id) => {
@@ -40,6 +44,29 @@ const createElements = (arr) => {
 
     return htmlElements.join(" ");
 }
+
+
+const filterIssues=(status)=>{
+    if(status==="all"){
+        displayIssueData(allIssues);
+    }
+    else{
+        const filtered=allIssues.filter(issue=>issue.status==status);
+        displayIssueData(filtered);
+    }
+};
+
+//button active style handling
+const setActiveButton = (clickedBtn) => {
+    //after clicking on open and closed button remove active from all
+    const buttons = document.querySelectorAll(".btn");
+    buttons.forEach(btn => btn.classList.remove("active"));
+
+    //only show the active button which have been clicked
+    const selectedButton=document.getElementById(clickedBtn);
+    selectedButton.classList.add("active");
+
+};
 
 
 //display the data
@@ -118,4 +145,14 @@ const displayIssueDetails = (cards) => {
     document.getElementById("my_modal_5").showModal();
 };
 
+document.getElementById("all-btn").addEventListener("click",()=>{
+    filterIssues("all");
+})
+document.getElementById("open-btn").addEventListener("click",()=>{
+    filterIssues("open");
+})
+document.getElementById("closed-btn").addEventListener("click",()=>{
+    filterIssues("closed");
+})
+ 
 loadIssueData();
