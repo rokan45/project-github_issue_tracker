@@ -43,7 +43,7 @@ const countIssues = (issues) => {
 //to show status label
 const createElements = (arr) => {
     const htmlElements = arr.map((el) =>
-        `<button class="btn btn-soft">${el}</button>`)
+        `<button class="${(el) === "bug" ? `bg-[#f1d7d7ae]` : `bg-[#ebe3c2b2]`} btn btn-soft rounded-4xl">${el}</button>`)
 
     return htmlElements.join(" ");
 }
@@ -89,7 +89,7 @@ const displayIssueData = (issues) => {
 
         //create element
         const issueCard = document.createElement("div");
-        issueCard.innerHTML = ` <div onclick="loadIssueDetails(${issue.id})" class="p-4 rounded-sm shadow-sm w-full h-90">
+        issueCard.innerHTML = ` <div onclick="loadIssueDetails(${issue.id})" class="${issue.status === "open" ? `border-t-4 border-[#00A96E]` : `border-t-4 border-[#A855F7]`} p-4 rounded-sm shadow-sm w-full h-90">
             <div class="flex justify-between items-center mb-3">
                 <div>${issue.status === "open" ? `<img src="./images/Open-Status.png" alt="" class="w-6 h-6 object-contain"></img>` : `<img src="./images/Closed-Status.png" alt="" class="w-6 h-6 object-contain"></img>`}
                 </div>
@@ -98,7 +98,7 @@ const displayIssueData = (issues) => {
             <h2 class="text-sm font-semibold mb-2">${issue.title}</h2>
             <p class="text-sm text-[#64748B] text-wrap">${issue.description}</p>
 
-            <div class="felx flex-wrap items-center mt-3 space-x-2">  ${createElements(issue.labels)}
+            <div class="flex flex-wrap items-center mt-3 gap-2">  ${createElements(issue.labels)}
             </div>
             <hr class="border-[#E4E4E7] mt-2">
             <div class="p-4 mt-auto space-y-2">
