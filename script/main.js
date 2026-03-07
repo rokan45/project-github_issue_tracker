@@ -1,6 +1,6 @@
 console.log("Im connected");
 let allIssues = [];
-console.log(allIssues);
+
 // fetching issue data
 const loadIssueData = () => {
     const url = "https://phi-lab-server.vercel.app/api/v1/lab/issues";
@@ -26,6 +26,8 @@ const loadIssueDetails = async (id) => {
     displayIssueDetails(details.data);
 
 };
+
+
 
 //to count issues
 const countIssues = (issues) => {
@@ -76,7 +78,6 @@ const setActiveButton = (clickedBtn) => {
 
 
 
-
 //display the data
 const displayIssueData = (issues) => {
     //get parentElement
@@ -88,7 +89,7 @@ const displayIssueData = (issues) => {
 
         //create element
         const issueCard = document.createElement("div");
-        issueCard.innerHTML = ` <div onclick="loadIssueDetails(${issue.id})" class="p-4 rounded-sm shadow-sm w-full max-w-sm">
+        issueCard.innerHTML = ` <div onclick="loadIssueDetails(${issue.id})" class="p-4 rounded-sm shadow-sm w-full h-90">
             <div class="flex justify-between items-center mb-3">
                 <div>${issue.status === "open" ? `<img src="./images/Open-Status.png" alt="" class="w-6 h-6 object-contain"></img>` : `<img src="./images/Closed-Status.png" alt="" class="w-6 h-6 object-contain"></img>`}
                 </div>
@@ -100,7 +101,7 @@ const displayIssueData = (issues) => {
             <div class="felx flex-wrap items-center mt-3 space-x-2">  ${createElements(issue.labels)}
             </div>
             <hr class="border-[#E4E4E7] mt-2">
-            <div class="p-4 space-y-2">
+            <div class="p-4 mt-auto space-y-2">
                 <h2 class="text-sm text-[#64748B]">${issue.author}</h2>
                 <h2 class="text-sm text-[#64748B] mb-2">${issue.createdAt}</h2>
             </div>
@@ -152,6 +153,8 @@ const displayIssueDetails = (cards) => {
                 </div>`;
     document.getElementById("my_modal_5").showModal();
 };
+
+
 
 //filter issue and update the number of issues
 document.getElementById("all-btn").addEventListener("click", () => {
@@ -218,8 +221,7 @@ const searchReload = () => {
         }
     });
 }
+
 searchReload();
-
-
 
 loadIssueData();
