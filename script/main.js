@@ -1,5 +1,6 @@
 console.log("Im connected");
-
+let allIssues = [];
+console.log(allIssues);
 // fetching issue data
 const loadIssueData = () => {
     const url = "https://phi-lab-server.vercel.app/api/v1/lab/issues";
@@ -7,7 +8,7 @@ const loadIssueData = () => {
     fetch(url)
         .then((res) => res.json())//promise
         .then(json => {
-            allIssues=json.data;
+            allIssues = json.data;
             // console.log(allIssues);
 
             displayIssueData(allIssues);
@@ -34,7 +35,7 @@ const countIssues = (issues) => {
     const closedIssues = issues.filter(issue => issue.status === "closed");
     const totalClosed = closedIssues.length;
 
-    console.log(total, totalOpen, totalClosed);
+    return { total, totalOpen, totalClosed };
 
 }
 //to show status label
@@ -46,12 +47,12 @@ const createElements = (arr) => {
 }
 
 
-const filterIssues=(status)=>{
-    if(status==="all"){
+const filterIssues = (status) => {
+    if (status === "all") {
         displayIssueData(allIssues);
     }
-    else{
-        const filtered=allIssues.filter(issue=>issue.status==status);
+    else {
+        const filtered = allIssues.filter(issue => issue.status == status);
         displayIssueData(filtered);
     }
 };
@@ -63,7 +64,7 @@ const setActiveButton = (clickedBtn) => {
     buttons.forEach(btn => btn.classList.remove("active"));
 
     //only show the active button which have been clicked
-    const selectedButton=document.getElementById(clickedBtn);
+    const selectedButton = document.getElementById(clickedBtn);
     selectedButton.classList.add("active");
 
 };
@@ -145,14 +146,35 @@ const displayIssueDetails = (cards) => {
     document.getElementById("my_modal_5").showModal();
 };
 
-document.getElementById("all-btn").addEventListener("click",()=>{
+//filter issue and update the number of issues
+document.getElementById("all-btn").addEventListener("click", () => {
     filterIssues("all");
+     const result = countIssues(allIssues);
+    console.log(result.total);
+
+    //get element
+    const numberContaier = document.getElementById("number");
+    numberContaier.innerText = result.total;
+
 })
-document.getElementById("open-btn").addEventListener("click",()=>{
+document.getElementById("open-btn").addEventListener("click", () => {
     filterIssues("open");
+    const result = countIssues(allIssues);
+    console.log(result.totalOpen);
+
+    //get element
+    const numberContaier = document.getElementById("number");
+    numberContaier.innerText = result.totalOpen;
+
 })
-document.getElementById("closed-btn").addEventListener("click",()=>{
+document.getElementById("closed-btn").addEventListener("click", () => {
     filterIssues("closed");
+     const result = countIssues(allIssues);
+    console.log(result.totalClosed);
+
+    //get element
+    const numberContaier = document.getElementById("number");
+    numberContaier.innerText = result.totalClosed;
 })
- 
+
 loadIssueData();
