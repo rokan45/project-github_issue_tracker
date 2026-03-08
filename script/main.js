@@ -3,6 +3,7 @@ let allIssues = [];
 
 // fetching issue data
 const loadIssueData = () => {
+    manageSpinner(true);
     const url = "https://phi-lab-server.vercel.app/api/v1/lab/issues";
     console.log(url);
     fetch(url)
@@ -76,6 +77,17 @@ const setActiveButton = (clickedBtn) => {
 
 };
 
+const manageSpinner = (status) => {
+    if (status == true) {
+        document.getElementById("spinner").classList.remove("hidden");
+        document.getElementById("issue-container").classList.add("hidden");
+    }
+    else {
+        document.getElementById("issue-container").classList.remove("hidden");
+        document.getElementById("spinner").classList.add("hidden");
+    }
+}
+
 
 
 //display the data
@@ -112,6 +124,7 @@ const displayIssueData = (issues) => {
         issueContainer.appendChild(issueCard);
 
     });
+    manageSpinner(false);
 }
 
 const displayIssueDetails = (cards) => {
@@ -137,7 +150,7 @@ const displayIssueDetails = (cards) => {
                 <div class="flex mx-auto items-center p-5 bg-gray-200 mt-5 rounded-sm">
                     <div class="flex-1">
                         <p class="text-[#64748B] text-sm mb-1">Assignee:</p>
-                        <h2 class="text-sm font-semibold text-black">${cards.assignee}</h2>
+                        <h2 class="text-sm font-semibold text-black">${cards.assignee?cards.assignee:"Not found!"}</h2>
                     </div>
                     <div class="flex-1">
                         <p class="text-[#64748B] text-sm mb-1">Priority</p>
