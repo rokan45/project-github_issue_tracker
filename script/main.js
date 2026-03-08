@@ -150,7 +150,7 @@ const displayIssueDetails = (cards) => {
                 <div class="flex mx-auto items-center p-5 bg-gray-200 mt-5 rounded-sm">
                     <div class="flex-1">
                         <p class="text-[#64748B] text-sm mb-1">Assignee:</p>
-                        <h2 class="text-sm font-semibold text-black">${cards.assignee?cards.assignee:"Not found!"}</h2>
+                        <h2 class="text-sm font-semibold text-black">${cards.assignee ? cards.assignee : "Not found!"}</h2>
                     </div>
                     <div class="flex-1">
                         <p class="text-[#64748B] text-sm mb-1">Priority</p>
@@ -227,12 +227,20 @@ document.getElementById("btn-search").addEventListener("click", () => {
 //If search box cleared allissues displayed
 const searchReload = () => {
     const getInputElment = document.getElementById("input-search");
-    const inputValue = getInputElment.value.trim().toLowerCase()
+
     getInputElment.addEventListener("input", () => {
+        const inputValue = getInputElment.value.trim().toLowerCase();
         if (inputValue.trim() === "") {
             displayIssueData(allIssues);
+
+            //update total issue number after reload
+            const result = countIssues(allIssues);
+            const numberContaier = document.getElementById("number");
+            numberContaier.innerText = result.total;
         }
     });
+
+
 }
 
 searchReload();

@@ -25,36 +25,36 @@
 </head>
 
 
-<body class="min-h-screen max-w-md bg-[#E4E4E7] mx-auto">
+<body class="min-h-screen flex items-center justify-center bg-gray-100">
     <!-- Login Form -->
-    <section>
-        <div class="form pt-8 ">
+    <section class="w-full max-w-md">
+        <div class="form pt-2">
             <div class=" w-full max-w-sm bg-white shrink-0 mx-auto shadow-sm rounded-md">
                 <div class="card-body">
                     <!-- logo div -->
-                    <div class="flex flex-col justify-center items-center text-center mb-6">
+                    <div class="flex flex-col justify-center items-center text-center mb-2">
                         <img src="images/github-logo.png" alt="">
-                        <h2 class="text-2xl font-semibold mt-6">GitHub Issues Tracker</h2>
+                        <h2 class="text-2xl font-semibold mt-2">GitHub Issues Tracker</h2>
                         <p class="text-sm text-[#64748B] mt-1">Sign in to manage your issues</p>
                     </div>
 
                     <fieldset class="fieldset">
                         <label class="label text-[16px] font-medium text-[#080808]">Username</label>
-                        <input id="username" type="email" class="input rounded-md bg-[#F4F5F7]"
+                        <input id="username" type="email" class="w-full input rounded-md bg-[#F4F5F7]"
                             placeholder="Default: admin" />
                         <label class="label text-[16px] font-medium text-[#080808]">Password</label>
-                        <input id="input-pass" type="password" class="input rounded-md bg-[#F4F5F7]"
+                        <input id="input-pass" type="password" class=" w-full input rounded-md bg-[#F4F5F7]"
                             placeholder="Default: admin123" />
-                        <button id="sign-in-btn" class="btn btn-primary mt-4 rounded-md w-[320px] h-[45px]">Sign
+                        <button id="sign-in-btn" class="btn btn-primary mt-4 rounded-md w-full h-[45px]">Sign
                             In</button>
                     </fieldset>
-                    <div class="flex items-center my-4">
+                    <div class="flex items-center my-1">
                         <hr class="grow border-gray-300">
                         <span class="mx-4 text-gray-500 font-medium">OR</span>
                         <hr class="grow border-gray-300">
                     </div>
-                    <p class="text-sm py-3 text-gray-500 text-center">Demo Credentials:</p>
-                    <div class="flex flex-col items-center justify-center bg-gray-100 py-10 rounded-sm">
+                    <p class="text-sm py-1 text-gray-500 text-center">Demo Credentials:</p>
+                    <div class="flex flex-col items-center justify-center bg-gray-100 py-5 rounded-sm">
                         <p>Username: admin</p>
                         <p>Password: admin123</p>
                     </div>
