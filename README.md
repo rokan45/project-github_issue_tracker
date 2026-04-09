@@ -9,7 +9,6 @@ A responsive GitHub Issues Tracker web application built with HTML, Tailwind CSS
 - **Tailwind CSS** / DaisyUI
 - **Vanilla JavaScript (ES6+)**
 
----
 
 ## ✨ Features
 
@@ -22,7 +21,6 @@ A responsive GitHub Issues Tracker web application built with HTML, Tailwind CSS
 - ⏳ Loading spinner while data is being fetched
 - 📱 Fully responsive design
 
----
 
 ## 🔑 Demo Credentials
 
@@ -31,7 +29,6 @@ A responsive GitHub Issues Tracker web application built with HTML, Tailwind CSS
 | Username | `admin`    |
 | Password | `admin123` |
 
----
 
 ## 📡 API Endpoints
 
@@ -41,7 +38,6 @@ A responsive GitHub Issues Tracker web application built with HTML, Tailwind CSS
 | Single Issue  | `https://phi-lab-server.vercel.app/api/v1/lab/issue/{id}`               |
 | Search Issues | `https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q={query}`  |
 
----
 
 ## 📁 Project Structure
 
@@ -54,7 +50,6 @@ github-issues-tracker/
 └── README.md         # Project documentation
 ```
 
----
 
 ## ⚙️ How to Run Locally
 
@@ -75,7 +70,6 @@ github-issues-tracker/
 - [GitHub](https://github.com/rokan45)
 - [LinkedIn](https://linkedin.com/in/rokan45)
 
----
 
 ## 📄 License
 
